@@ -27,7 +27,7 @@ app.use("/api/customer", require("../routes/customer.route.js"));
 app.use("/api/category", require("../routes/category.route.js"));
 app.use("/api/brand", require("../routes/brand.route.js"));
 app.use("/api/aroma", require("../routes/aroma.route.js"));
-
+app.use("/api/review", require("../routes/review.route.js"));
 app.get("/", (req, res) => {
   res.send("Server is running");
 });

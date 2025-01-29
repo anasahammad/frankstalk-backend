@@ -13,7 +13,7 @@ const addressSchema = new mongoose.Schema({
 const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   name: { type: String },
-  role: { type: String, enum: ['customer', 'admin'], default: 'customer' },
+  role: { type: String, enum: ['customer', 'admin'], default: 'admin' },
   addresses: [addressSchema],
   otp: { type: {
     code: { type: String },

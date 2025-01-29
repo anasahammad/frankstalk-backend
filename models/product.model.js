@@ -1,11 +1,7 @@
 
 const mongoose = require('mongoose');
 
-const reviewSchema = new mongoose.Schema({
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  review: { type: String, required: true },
-  rating: { type: Number, required: true },
-})
+
 
 
 const productSchema = new mongoose.Schema({
@@ -25,7 +21,7 @@ const productSchema = new mongoose.Schema({
   isSale: { type: Boolean, default: false },
   images: { type: [String], required: true },
   isActive: { type: Boolean, default: true },
-  reviews: [reviewSchema],
+  reviews: {type: [mongoose.Schema.Types.ObjectId], ref: 'Review', required: false},
   aroma: { type: mongoose.Schema.Types.ObjectId, ref: 'Aroma', required: true },
   createdAt: { type: Date, default: Date.now }
 });
