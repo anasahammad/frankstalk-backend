@@ -51,9 +51,46 @@ const createProduct = async (req, res) => {
     }
   };
   
+  
+  const getProductsByCategory = async (req, res) => {
+    try {
+      const products = await Product.find({ category: req.params.id });
+      res.send(products);
+    }
+    catch (error) {
+      res.status(500).send({ error: error.message });
+    }
+
+  }
+
+  const getProductsByBrands = async (req, res) => {
+    try {
+      const products = await Product.find({ brand: req.params.id });
+      res.send(products);
+    }
+    catch (error) {
+      res.status(500).send({ error: error.message });
+    }
+
+  }
+
+  const getProductsByAroma = async (req, res) => {
+    try {
+      const products = await Product.find({ aroma: req.params.id });
+      res.send(products);
+    }
+    catch (error) {
+      res.status(500).send({ error: error.message });
+    }
+
+  }
   module.exports = {
     createProduct,
     updateProduct,
     deleteProduct,
-    getProducts
+    getProducts,
+    getProductsByCategory,
+    getProductsByBrands,
+    getProductsByAroma
+    
   }
