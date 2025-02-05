@@ -5,7 +5,7 @@ const ProductSchema = new mongoose.Schema({
   name: { type: String, required: true },
   price: { type: Number, required: true },
   images: { type: [String] },
-  qty: { type: Number, required: true }, // quantity of product
+  qty: { type: Number, required: true, default:1 }, // quantity of product
 });
 const orderSchema = new mongoose.Schema({
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: false },
@@ -31,6 +31,15 @@ const orderSchema = new mongoose.Schema({
         type: String,
         required: false
       },
+    },
+    paymentMethod: {
+      type: String,
+      enum: [ 'nagad', 'bkash', 'cash', 'rocket', 'upay', 'mCash'],
+      required: true
+    },
+    payment:{
+      transactionId: String,
+      phone: String,
     },
     status: {
       type: String,

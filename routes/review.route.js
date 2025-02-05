@@ -7,7 +7,7 @@ const router = express.Router();
 // Category routes
 router.post('/:id', createReview);
 router.get('/:id', getReviews);
-router.get('/', auth, adminAuth, getAlReviews);
+router.get('/',  getAlReviews);
 router.put('/:id', auth, adminAuth, updateReviewStatus);
 router.delete('/:id', auth, adminAuth, deleteReviewByAdmin);
 
